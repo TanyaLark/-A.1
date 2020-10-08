@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    background-image: url('./img/hd_background.png'); 
+    background-color:lightblue;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.calculating_tax_container{
+    width: 100%;
+}
+h1{
+    color: darkslategray;
+    text-align: center;
+}
