@@ -8,24 +8,18 @@ button.addEventListener('click', function () {
 });
 
 //2020 Tax Brackets (Due April 2021)
-const maxBracketTax10 = 9875.99;//$
-
-const minBracketTax12 = 9876;//$
-const maxBracketTax12 = 40125.99;//$
-
-const minBracketTax22 = 40126;//$
-const maxBracketTax22 = 85525.99;//$
-
-const minBracketTax24 = 85526;//$
-const maxBracketTax24 = 163300.99;//$
-
-const minBracketTax32 = 163301;//$
-const maxBracketTax32 = 207350.99;//$
-
-const minBracketTax35 = 207351;//$
-const maxBracketTax35 = 518400.99;//$
-
-const minBracketTax37 = 518401;//$
+const maxBracketTax10 = 9875;//$
+const minBracketTax12 = maxBracketTax10;//$
+const maxBracketTax12 = 40125;//$
+const minBracketTax22 = maxBracketTax12;//$
+const maxBracketTax22 = 85525;//$
+const minBracketTax24 = maxBracketTax22;//$
+const maxBracketTax24 = 163300;//$
+const minBracketTax32 = maxBracketTax24;//$
+const maxBracketTax32 = 207350;//$
+const minBracketTax35 = maxBracketTax32;//$
+const maxBracketTax35 = 518400;//$
+const minBracketTax37 = maxBracketTax35;//$
 
 let taxRate10 = maxBracketTax10 * 0.1;//$, for tax 10%
 let taxRate12 = (maxBracketTax12 - minBracketTax12) * 0.12; //$, for tax 12%
@@ -46,27 +40,27 @@ function taxСalculator(grossIncome, AGI) {
             taxRate10 = AGI * 0.1;
             taxAmount = taxRate10;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax12 && AGI <= maxBracketTax12:
+        case AGI > minBracketTax12 && AGI <= maxBracketTax12:
             taxRate12 = (AGI - minBracketTax12) * 0.12; //$, for tax 12%
             taxAmount = taxRate10 + taxRate12;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax22 && AGI <= maxBracketTax22:
+        case AGI > minBracketTax22 && AGI <= maxBracketTax22:
             taxRate22 = (AGI - minBracketTax22) * 0.22; //$, for tax 22%
             taxAmount = taxRate10 + taxRate12 + taxRate22;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax24 && AGI <= maxBracketTax24:
+        case AGI > minBracketTax24 && AGI <= maxBracketTax24:
             taxRate24 = (AGI - minBracketTax24) * 0.24; //$, for tax 24%
             taxAmount = taxRate10 + taxRate12 + taxRate22 + taxRate24;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax32 && AGI <= maxBracketTax32:
+        case AGI > minBracketTax32 && AGI <= maxBracketTax32:
             taxRate32 = (AGI - minBracketTax32) * 0.32; //$, for tax 32%
             taxAmount = taxRate10 + taxRate12 + taxRate22 + taxRate24 + taxRate32;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax35 && AGI <= maxBracketTax35:
+        case AGI > minBracketTax35 && AGI <= maxBracketTax35:
             taxRate35 = (AGI - minBracketTax35) * 0.35; //$, for tax 35%
             taxAmount = taxRate10 + taxRate12 + taxRate22 + taxRate24 + taxRate32 + taxRate35;
             return `Tax amount: ${rounded(taxAmount)}$`;
-        case AGI >= minBracketTax37:
+        case AGI > minBracketTax37:
             let taxRate37 = (AGI - minBracketTax37) * 0.37; //$, for tax 37%
             taxAmount = taxRate10 + taxRate12 + taxRate22 + taxRate24 + taxRate32 + taxRate35 + taxRate37;
             return `Tax amount: ${rounded(taxAmount)}$`;
